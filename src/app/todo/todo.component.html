@@ -1,0 +1,30 @@
+<div class="whole-cont">
+  <div class="nav" style="color: black">
+    <div class="inner-nav">
+      <p>All</p>
+      <p>Groceries</p>
+      <p>College</p>
+      <p>Payments</p>
+    </div>
+    <div class="split"></div>
+
+    <div class="right-side">
+      <div class="inner-right-side">
+        <h3>All Tasks</h3>
+
+        <input type="text" placeholder="Add Task" [(ngModel)]="newTask" class="input-adding" />
+
+        <button (click)="addTask()">Add Task</button>
+
+        <div *ngFor="let task of tasks">
+          <div class="tasks">
+            <input type="checkbox" [checked]="task.completed" (change)="toggleCompletion(task)" />
+            <label>{{ task.name }}</label>
+            <p (click)="removeTask(task)" *ngIf="!task.completed">remove</p>
+            <p *ngIf="task.completed" style="color: rgb(62, 251, 62);">Done</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
